@@ -17,8 +17,9 @@ function renderBooks(filter) {
 
 
 
-    const booksHtml = books.map((book) => {
-        return `<div class="book">
+ const booksHtml = books
+    .map((book) => {
+      return `<div class="book">
     <figure class="book__img--wrapper">
     <img class="book__img" src="${book.url}" alt="">
     </figure>
@@ -27,16 +28,11 @@ function renderBooks(filter) {
     </div>
     <div class="book__ratings">
     ${ratingsHTML(book.rating)}
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star-half-alt"></i>
     </div>
     <div class="book__price">
     <span>$${book.originalPrice.toFixed(2)}</span>
     </div>
-    </div>`
+    </div>`;
     })
     .join("");
 
@@ -52,7 +48,7 @@ function ratingsHTML(rating) {
     if (!Number.isInteger(rating)) {
         ratingHTML += '<i class="fas fa-star-half-alt"></i>\n';
     }
-    return ratingsHTML;
+    return ratingHTML;
 }    
 
 
